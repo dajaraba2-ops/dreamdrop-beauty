@@ -1,44 +1,36 @@
-/* Fondo con difuminado aguamarina */
+/* Fondo general */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;  /* Texto general en Roboto */
   background: linear-gradient(135deg, #85cfd2, #ffffff);
-  color: #000;
-  text-align: center;
+  min-height: 100vh;
 }
 
 /* Encabezado */
 header {
-  background: linear-gradient(135deg, #85cfd2, #ffffff);
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 30px;
 }
 
-/* Logo y título centrados */
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px; /* espacio entre logo y texto */
-}
-
-/* Logo */
-.logo {
-  width: 120px;
+header img {
+  max-width: 200px;
   height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
-/* Título con fuente Angelina */
+/* Título con estilo manuscrito */
 h1 {
-  font-family: 'Angelina', cursive;
   font-size: 3rem;
-  margin: 0;
-  color: #000;
+  color: #222;
+  margin-top: 15px;
+  font-family: 'Dancing Script', cursive;  /* Solo el título con estilo Angelina */
 }
 
-/* Subtítulos */
-h2 {
-  font-family: 'Angelina', cursive;
-  font-size: 2rem;
+/* Texto general */
+p {
+  font-size: 1.1rem;
   color: #333;
+  font-family: 'Roboto', sans-serif;  /* Párrafos en Roboto */
 }
+
