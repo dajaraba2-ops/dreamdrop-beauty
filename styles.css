@@ -1,0 +1,44 @@
+/* Fondo con difuminado aguamarina */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #85cfd2, #ffffff);
+  color: #000;
+  text-align: center;
+}
+
+/* Encabezado */
+header {
+  background: linear-gradient(135deg, #85cfd2, #ffffff);
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Logo y título centrados */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* espacio entre logo y texto */
+}
+
+/* Logo */
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+/* Título con fuente Angelina */
+h1 {
+  font-family: 'Angelina', cursive;
+  font-size: 3rem;
+  margin: 0;
+  color: #000;
+}
+
+/* Subtítulos */
+h2 {
+  font-family: 'Angelina', cursive;
+  font-size: 2rem;
+  color: #333;
+}
