@@ -1,36 +1,64 @@
-/* Fondo general */
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Fondo degradado */
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;  /* Texto general en Roboto */
   background: linear-gradient(135deg, #85cfd2, #ffffff);
-  min-height: 100vh;
+  color: #000;
 }
 
 /* Encabezado */
 header {
   text-align: center;
-  padding: 30px;
+  padding: 20px;
 }
 
-header img {
-  max-width: 200px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+.logo {
+  max-width: 150px;
 }
 
-/* Título con estilo manuscrito */
-h1 {
+.titulo {
+  font-family: 'Alex Brush', cursive;
   font-size: 3rem;
-  color: #222;
-  margin-top: 15px;
-  font-family: 'Dancing Script', cursive;  /* Solo el título con estilo Angelina */
+  margin: 10px 0 0 0;
 }
 
-/* Texto general */
-p {
-  font-size: 1.1rem;
-  color: #333;
-  font-family: 'Roboto', sans-serif;  /* Párrafos en Roboto */
+/* Menú */
+nav {
+  background: #85cfd2;
+  padding: 10px 0;
 }
 
+.menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin: 0 15px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #000;
+}
+
+/* Secciones */
+section {
+  padding: 80px 20px;
+  min-height: 100vh;
+  text-align: center;
+}
