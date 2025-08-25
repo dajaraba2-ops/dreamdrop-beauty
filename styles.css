@@ -1,64 +1,44 @@
-/* Scroll suave */
-html {
-  scroll-behavior: smooth;
-  font-family: 'Roboto', sans-serif;
-}
-
-/* Fondo degradado */
+/* Fondo con difuminado aguamarina */
 body {
   margin: 0;
+  font-family: 'Arial', sans-serif;
   background: linear-gradient(135deg, #85cfd2, #ffffff);
   color: #000;
+  text-align: center;
 }
 
 /* Encabezado */
 header {
-  text-align: center;
+  background: linear-gradient(135deg, #85cfd2, #ffffff);
   padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.logo {
-  max-width: 150px;
-}
-
-.titulo {
-  font-family: 'Alex Brush', cursive;
-  font-size: 3rem;
-  margin: 10px 0 0 0;
-}
-
-/* Menú */
-nav {
-  background: #85cfd2;
-  padding: 10px 0;
-}
-
-.menu {
+/* Logo y título centrados */
+.header-content {
   display: flex;
+  align-items: center;
   justify-content: center;
-  list-style: none;
+  gap: 15px; /* espacio entre logo y texto */
+}
+
+/* Logo */
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+/* Título con fuente Angelina */
+h1 {
+  font-family: 'Angelina', cursive;
+  font-size: 3rem;
   margin: 0;
-  padding: 0;
-}
-
-.menu li {
-  margin: 0 15px;
-}
-
-.menu a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.menu a:hover {
   color: #000;
 }
 
-/* Secciones */
-section {
-  padding: 80px 20px;
-  min-height: 100vh;
-  text-align: center;
+/* Subtítulos */
+h2 {
+  font-family: 'Angelina', cursive;
+  font-size: 2rem;
+  color: #333;
 }
