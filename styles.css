@@ -15,6 +15,7 @@ body {
 header {
   text-align: center;
   padding: 20px;
+  position: relative;
 }
 
 .logo {
@@ -27,15 +28,29 @@ header {
   margin: 10px 0 0 0;
 }
 
+/* Botón menú hamburguesa */
+.menu-toggle {
+  display: none; /* solo en móvil */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000;
+}
+
 /* Menú vertical */
 .menu-vertical {
   width: 200px;
-  background: #85cfd2; /* aguamarina */
-  position: fixed; /* siempre visible */
+  background: #85cfd2;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
-  padding-top: 100px; /* espacio para logo/título */
+  padding-top: 20px;
+  transition: transform 0.3s ease-in-out;
 }
 
 .menu-vertical ul {
@@ -63,9 +78,33 @@ header {
   color: #fff;
 }
 
-/* Secciones (ajustadas para dejar espacio al menú) */
+/* Secciones (espacio para el menú en escritorio) */
 section {
-  margin-left: 220px; /* deja espacio a la izquierda */
+  margin-left: 220px;
   padding: 40px 20px;
   min-height: 100vh;
+}
+
+/* 📱 Responsive (móvil) */
+@media (max-width: 768px) {
+  /* Botón visible */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Menú oculto al inicio */
+  .menu-vertical {
+    transform: translateX(-100%);
+  }
+
+  /* Menú activo (al dar clic) */
+  .menu-vertical.activo {
+    transform: translateX(0);
+  }
+
+  /* Secciones ocupan todo el ancho en móvil */
+  section {
+    margin-left: 0;
+    padding: 80px 20px;
+  }
 }
