@@ -5,20 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dreamdrop Beauty</title>
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Tipografías -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Alex+Brush&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Encabezado -->
   <header>
+    <button id="toggleMenu" class="menu-btn">☰</button>
     <img src="LOGO.png" alt="Logo Dreamdrop Beauty" class="logo">
     <h1 class="titulo">Dreamdrop Beauty</h1>
-    <button id="menu-toggle" class="menu-toggle">☰</button>
   </header>
 
-  <!-- Menú oculto -->
-  <nav id="menu" class="menu-oculto">
+  <!-- Menú lateral oculto -->
+  <nav id="menu" class="menu-vertical">
     <ul>
       <li><a href="#trendy">Trendy</a></li>
       <li><a href="#milagros">Milagros</a></li>
@@ -27,7 +25,7 @@
       <li><a href="#dluchi">D'Luchi</a></li>
       <li><a href="#kaba">Kaba</a></li>
       <li><a href="#anyeluz">Anyeluz</a></li>
-      <li><a href="#quienes">Quiénes somos</a></li>
+      <li><a href="#quienes-somos">Quiénes Somos</a></li>
     </ul>
   </nav>
 
@@ -67,52 +65,53 @@
     <p>Contenido de Anyeluz.</p>
   </section>
 
-  <!-- Sección Quiénes somos -->
-  <section id="quienes">
-    <h2>Quiénes somos</h2>
-    <p>
-      En <strong>Dreamdrop Beauty</strong> creemos en la magia de la belleza 
-      auténtica. Nuestra pasión es ofrecer productos innovadores que realcen 
-      tu esencia, con calidad y confianza.  
-    </p>
+  <section id="quienes-somos">
+    <h2>Quiénes Somos</h2>
+    <p>Somos Dreamdrop Beauty, una marca dedicada a resaltar la belleza con productos de calidad y estilo único.</p>
   </section>
 
-  <!-- Script -->
+  <!-- Script menú -->
   <script>
-    const menu = document.getElementById('menu');
-    const toggle = document.getElementById('menu-toggle');
-    let autoClose;
+    const toggleMenu = document.getElementById("toggleMenu");
+    const menu = document.getElementById("menu");
+    let hideTimeout;
 
-    function abrirMenu() {
-      menu.classList.add('activo');
-      clearTimeout(autoClose);
-      autoClose = setTimeout(() => {
-        menu.classList.remove('activo');
-      }, 10000); // 10 segundos
+    function showMenu() {
+      menu.classList.add("show");
+      resetHideTimeout();
     }
 
-    function cerrarMenu() {
-      menu.classList.remove('activo');
-      clearTimeout(autoClose);
+    function hideMenu() {
+      menu.classList.remove("show");
     }
 
-    toggle.addEventListener('click', () => {
-      if (menu.classList.contains('activo')) {
-        cerrarMenu();
+    function resetHideTimeout() {
+      clearTimeout(hideTimeout);
+      hideTimeout = setTimeout(() => {
+        hideMenu();
+      }, 3000); // 3 segundos sin interacción
+    }
+
+    toggleMenu.addEventListener("click", () => {
+      if (menu.classList.contains("show")) {
+        hideMenu();
       } else {
-        abrirMenu();
+        showMenu();
       }
     });
 
-    menu.addEventListener('mouseenter', () => clearTimeout(autoClose));
-    menu.addEventListener('mouseleave', () => {
-      autoClose = setTimeout(() => {
-        menu.classList.remove('activo');
-      }, 10000);
+    document.querySelectorAll(".menu-vertical a").forEach(link => {
+      link.addEventListener("click", () => {
+        hideMenu();
+      });
     });
+
+    menu.addEventListener("mousemove", resetHideTimeout);
+    menu.addEventListener("touchstart", resetHideTimeout);
   </script>
 </body>
 </html>
+
 
 
 
