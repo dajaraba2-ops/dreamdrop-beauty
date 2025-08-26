@@ -1,106 +1,116 @@
-/* ===== Estilos generales ===== */
+/* Scroll suave y fuente general */
+html {
+  scroll-behavior: smooth;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Fondo degradado aguamarina difuminado */
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background: #fff;
-  color: #333;
+  background: linear-gradient(135deg, #a0dce6, #ffffff); /* azul agua manrina más claro */
+  color: #000;
 }
 
-h1, h2 {
-  margin: 20px 0;
-  font-family: 'Roboto', sans-serif;
+/* Encabezado */
+header {
+  text-align: center;
+  padding: 20px;
 }
 
-/* Título de "Quiénes somos" */
-.titulo-quienes {
-  font-family: 'Great Vibes', cursive;
-  font-size: 36px;
-  color: #007777;
-}
-
-/* ===== Logo ===== */
 .logo {
-  display: block;
-  max-width: 120px;
-  margin: 0 auto 20px auto;
+  max-width: 150px;
 }
 
-/* ===== Botón menú ===== */
-.menu-btn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  font-size: 24px;
-  background: #a8e3e5;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  z-index: 1001;
-  transition: background 0.3s;
+.titulo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  margin: 10px 0 0 0;
 }
 
-.menu-btn:hover {
-  background: #7fd3d6;
-}
-
-/* ===== Menú lateral ===== */
-.menu {
+/* Menú vertical */
+.menu-vertical {
+  width: 200px;
+  background: linear-gradient(135deg, #85cfd2, #ffffff); /* difuminado aguamarina y blanco */
   position: fixed;
   top: 0;
-  left: -260px;
-  width: 240px;
-  height: 100%;
-  background: rgba(168, 227, 229, 0.85);
-  backdrop-filter: blur(10px);
-  padding-top: 60px;
-  transition: left 0.3s ease-in-out;
-  z-index: 1000;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-.menu.show {
   left: 0;
+  height: 100%;
+  padding-top: 100px;
+  transition: opacity 0.5s;
+  opacity: 1;
+  z-index: 1000;
 }
 
-.menu ul {
+.menu-vertical ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-.menu li {
-  margin: 20px 0;
-  text-align: center;
+.menu-vertical ul li {
+  margin: 15px 0;
 }
 
-.menu a {
-  text-decoration: none;
-  font-size: 18px;
+.menu-vertical ul li a {
+  display: block;
+  padding: 10px;
+  color: black;
   font-weight: bold;
-  color: #333;
-  transition: color 0.3s;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
 }
 
-.menu a:hover {
-  color: #007777;
+.menu-vertical ul li a:hover {
+  background: #000;
+  color: #fff;
 }
 
-/* ===== Secciones ===== */
-section {
-  padding: 60px 20px;
+/* Secciones (espacio para menú) */
+.seccion {
+  margin-left: 220px;
+  padding: 40px 20px;
   min-height: 100vh;
-}
-
-#inicio {
-  background: linear-gradient(to right, #a8e3e5, #ffffff);
   text-align: center;
 }
 
-#contacto {
-  background: #f9f9f9;
+/* Logo dentro de cada sección */
+.logo-seccion {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 120px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Título Quiénes Somos */
+.titulo-quienes {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Estilo productos inventario */
+#inventario-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.producto {
+  background: rgba(255,255,255,0.8);
+  padding: 15px;
+  border-radius: 10px;
+  width: 180px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: center;
+}
+
+.producto img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 

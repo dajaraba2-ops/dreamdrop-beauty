@@ -5,50 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dreamdrop Beauty</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="inventarios.css">
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Botón para abrir menú -->
-  <button class="menu-btn" id="menu-btn">☰</button>
+  <!-- Encabezado con logo -->
+  <header>
+    <img src="logo.png" alt="Logo Dreamdrop Beauty" class="logo">
+    <h1 class="titulo">Dreamdrop Beauty</h1>
+  </header>
 
-  <!-- Menú lateral -->
-  <nav class="menu" id="menu">
+  <!-- Menú vertical -->
+  <nav class="menu-vertical" id="menu-vertical">
     <ul>
-      <li><a href="#inicio">Inicio</a></li>
       <li><a href="#trendy">Trendy</a></li>
       <li><a href="#milagros">Milagros</a></li>
-      <li><a href="#pocion">La Poción</a></li>
-      <li><a href="#quienes">Quiénes Somos</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#lapocion">La Poción</a></li>
+      <li><a href="#lareceta">La Receta</a></li>
+      <li><a href="#dluchi">D'Luchi</a></li>
+      <li><a href="#kaba">Kaba</a></li>
+      <li><a href="#anyeluz">Anyeluz</a></li>
+      <li><a href="#quienes-somos">Quiénes Somos</a></li>
     </ul>
   </nav>
 
   <!-- Secciones -->
-  <section id="inicio">
-    <img src="logo.png" alt="Dreamdrop Logo" class="logo">
-    <h1>Bienvenidos a Dreamdrop Beauty</h1>
-  </section>
-
-  <section id="trendy">
-    <img src="logo.png" alt="Dreamdrop Logo" class="logo">
+  <section id="trendy" class="seccion">
+    <img src="logo.png" alt="Logo Dreamdrop Beauty" class="logo-seccion">
     <h2>Trendy</h2>
-    <p>Aquí van los productos de la categoría Trendy.</p>
+    <div id="inventario-container">
+      <!-- Aquí se cargarán los productos desde Google Sheets -->
+    </div>
   </section>
 
-  <section id="milagros">
-    <img src="logo.png" alt="Dreamdrop Logo" class="logo">
+  <section id="milagros" class="seccion">
+    <img src="logo.png" alt="Logo Dreamdrop Beauty" class="logo-seccion">
     <h2>Milagros</h2>
-    <p>Aquí van los productos de la categoría Milagros.</p>
+    <p>Contenido de la sección Milagros.</p>
   </section>
 
-  <section id="pocion">
-    <img src="logo.png" alt="Dreamdrop Logo" class="logo">
+  <section id="lapocion" class="seccion">
+    <img src="logo.png" alt="Logo Dreamdrop Beauty" class="logo-seccion">
     <h2>La Poción</h2>
-    <p>Aquí van los productos de la categoría La Poción.</p>
+    <p>Contenido de La Poción.</p>
   </section>
 
-  <section id="quienes">
-    <img src="logo.png" alt="Dreamdrop Logo" class="logo">
+  <section id="lareceta" class="seccion">
+    <img src="logo.png" alt="Logo Dreamdrop Beauty" class="logo-seccion">
+    <h2>La Receta</h2>
+    <p>Contenido de La Receta.</p>
+  </section>
+
+  <section id="dluchi" class="seccion">
+    <img src="logo.png" alt="Logo Dreamdrop Beauty" class="logo-seccion">
+    <h2>D'Luchi</h2>
+    <p>Contenido de D'Luchi.</p>
+  </section>
+
+  <section id="kaba" class="seccion">
+    <img src="logo.png" alt="Logo Dreamdrop Beauty" class="logo-seccion">
+    <h2>Kaba</h2>
+    <p>Contenido de Kaba.</p>
+  </section>
+
+  <section id="anyeluz" class="seccion">
+    <img src="logo.png" alt="Logo Dreamdrop Beauty" class="logo-seccion">
+    <h2>Anyeluz</h2>
+    <p>Contenido de Anyeluz.</p>
+  </section>
+
+  <section id="quienes-somos" class="seccion">
+    <img src="logo.png" alt="Logo Dreamdrop Beauty" class="logo-seccion">
     <h2 class="titulo-quienes">Quiénes Somos</h2>
     <p>
       En Dreamdrop Beauty and Hair Care creemos en la belleza como una experiencia que se comparte. 
@@ -66,38 +94,63 @@
     </p>
   </section>
 
-  <section id="contacto">
-    <img src="logo.png" alt="Dreamdrop Logo" class="logo">
-    <h2>Contacto</h2>
-    <p>Escríbenos a: contacto@dreamdrop.com</p>
-  </section>
-
+  <!-- Script para ocultar menú después de 3 segundos sin interacción -->
   <script>
-    const menuBtn = document.getElementById("menu-btn");
-    const menu = document.getElementById("menu");
-    let timeout;
+    const menu = document.getElementById('menu-vertical');
+    let timer;
 
-    function showMenu() {
-      menu.classList.add("show");
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        menu.classList.remove("show");
-      }, 3000); // 3 segundos sin interacción
+    function resetTimer() {
+      menu.style.opacity = '1';
+      clearTimeout(timer);
+      timer = setTimeout(() => { menu.style.opacity = '0'; }, 3000);
     }
 
-    // Abrir menú con botón
-    menuBtn.addEventListener("click", showMenu);
+    document.addEventListener('mousemove', resetTimer);
+    document.addEventListener('keydown', resetTimer);
 
     // Ocultar menú al hacer clic en un enlace
-    menu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        menu.classList.remove("show");
+    const links = document.querySelectorAll('.menu-vertical a');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.style.opacity = '0';
       });
     });
 
-    // Si el mouse pasa sobre el menú, no se cierre
-    menu.addEventListener("mouseenter", () => clearTimeout(timeout));
-    menu.addEventListener("mouseleave", showMenu);
+    // Inicial
+    resetTimer();
+  </script>
+
+  <!-- Script para cargar inventario desde Google Sheets -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+  <script>
+    const inventarioContainer = document.getElementById('inventario-container');
+    const SHEET_ID = "TU_ID_DE_GOOGLE_SHEET"; // Reemplaza con tu ID
+    const API_KEY = "TU_API_KEY"; // Reemplaza con tu API Key
+
+    async function cargarInventario() {
+      try {
+        const response = await axios.get(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Inventario?key=${API_KEY}`);
+        const rows = response.data.values.slice(1); // ignorar encabezado
+        inventarioContainer.innerHTML = "";
+        rows.forEach(row => {
+          const [nombre, precio, imagen, cantidad] = row;
+          const producto = document.createElement('div');
+          producto.className = 'producto';
+          producto.innerHTML = `
+            <img src="${imagen}" alt="${nombre}">
+            <h3>${nombre}</h3>
+            <p>Precio: $${precio}</p>
+            <p>Disponibles: ${cantidad}</p>
+          `;
+          inventarioContainer.appendChild(producto);
+        });
+      } catch (err) {
+        inventarioContainer.innerHTML = "<p>No se pudo cargar el inventario.</p>";
+        console.error(err);
+      }
+    }
+
+    cargarInventario();
   </script>
 </body>
 </html>
