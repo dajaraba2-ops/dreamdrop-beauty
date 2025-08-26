@@ -10,16 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Alex+Brush&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Encabezado con logo -->
+  <!-- Botón para abrir/cerrar menú -->
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <!-- Encabezado -->
   <header>
     <img src="LOGO.png" alt="Logo Dreamdrop Beauty" class="logo">
     <h1 class="titulo">Dreamdrop Beauty</h1>
-    <!-- Botón hamburguesa (solo visible en móviles) -->
-    <button class="menu-toggle" id="menu-toggle">☰</button>
   </header>
 
-  <!-- Menú vertical -->
-  <nav class="menu-vertical" id="menu">
+  <!-- Menú oculto -->
+  <nav id="sidebar" class="sidebar">
     <ul>
       <li><a href="#trendy">Trendy</a></li>
       <li><a href="#milagros">Milagros</a></li>
@@ -67,16 +68,12 @@
     <p>Contenido de Anyeluz.</p>
   </section>
 
-  <!-- Script para el menú hamburguesa -->
+  <!-- Script para abrir/cerrar menú -->
   <script>
-    const toggle = document.getElementById("menu-toggle");
-    const menu = document.getElementById("menu");
-
-    toggle.addEventListener("click", () => {
-      menu.classList.toggle("activo");
-    });
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
   </script>
 </body>
 </html>
-
 

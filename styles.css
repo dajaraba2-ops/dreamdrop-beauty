@@ -4,18 +4,18 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
-/* Fondo degradado */
+/* 🎨 Fondo general degradado agua marina → blanco */
 body {
   margin: 0;
-  background: linear-gradient(135deg, #85cfd2, #ffffff);
+  background: linear-gradient(135deg, #85cfd2 0%, #ffffff 100%);
   color: #000;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Encabezado */
 header {
   text-align: center;
   padding: 20px;
-  position: relative;
 }
 
 .logo {
@@ -28,83 +28,76 @@ header {
   margin: 10px 0 0 0;
 }
 
-/* Botón menú hamburguesa */
-.menu-toggle {
-  display: none; /* solo en móvil */
-  position: absolute;
+/* Botón del menú */
+.menu-btn {
+  position: fixed;
   top: 20px;
-  right: 20px;
-  font-size: 2rem;
-  background: none;
-  border: none;
+  left: 20px;
+  font-size: 30px;
   cursor: pointer;
-  color: #000;
+  background: #85cfd2;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  z-index: 2000;
+  transition: 0.3s;
 }
 
-/* Menú vertical */
-.menu-vertical {
-  width: 200px;
-  background: #85cfd2;
+.menu-btn:hover {
+  background: #5fb4b7;
+}
+
+/* Sidebar oculto */
+.sidebar {
+  height: 100%;
+  width: 0;
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
-  padding-top: 20px;
-  transition: transform 0.3s ease-in-out;
+  /* 🎨 Degradado igual que body */
+  background: linear-gradient(180deg, #85cfd2 0%, #ffffff 100%);
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 80px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  z-index: 1500;
 }
 
-.menu-vertical ul {
+.sidebar.active {
+  width: 250px;
+}
+
+/* Items del menú */
+.sidebar ul {
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
-.menu-vertical ul li {
+.sidebar ul li {
   margin: 15px 0;
 }
 
-.menu-vertical ul li a {
+.sidebar ul li a {
   display: block;
-  padding: 10px;
-  color: white;
+  padding: 12px 20px;
+  color: #000; /* Negro */
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
   text-decoration: none;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
 
-.menu-vertical ul li a:hover {
-  background: #000;
+.sidebar ul li a:hover {
+  background: rgba(133, 207, 210, 0.8);
   color: #fff;
+  border-radius: 5px;
 }
 
-/* Secciones (espacio para el menú en escritorio) */
+/* Secciones */
 section {
-  margin-left: 220px;
   padding: 40px 20px;
   min-height: 100vh;
 }
 
-/* 📱 Responsive (móvil) */
-@media (max-width: 768px) {
-  /* Botón visible */
-  .menu-toggle {
-    display: block;
-  }
-
-  /* Menú oculto al inicio */
-  .menu-vertical {
-    transform: translateX(-100%);
-  }
-
-  /* Menú activo (al dar clic) */
-  .menu-vertical.activo {
-    transform: translateX(0);
-  }
-
-  /* Secciones ocupan todo el ancho en móvil */
-  section {
-    margin-left: 0;
-    padding: 80px 20px;
-  }
-}
