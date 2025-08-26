@@ -1,105 +1,108 @@
-/* General */
+/* ===== Estilos generales ===== */
 body {
-  font-family: 'Roboto', sans-serif;
   margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom right, #a6e5e7, #ffffff);
+  font-family: 'Roboto', sans-serif;
+  background: #fff;
   color: #333;
 }
 
-h2 {
-  margin-bottom: 10px;
+h1, h2 {
+  margin: 20px 0;
+  font-family: 'Roboto', sans-serif;
 }
 
-/* Título "Quiénes Somos" */
+/* Título de "Quiénes somos" */
 .titulo-quienes {
-  font-family: 'Angeline Script', cursive;
-  font-size: 2.5em;
-  color: #222;
-  margin-bottom: 20px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 36px;
+  color: #007777;
 }
 
-/* Botón menú */
-.menu-toggle {
+/* ===== Logo ===== */
+.logo {
+  display: block;
+  max-width: 120px;
+  margin: 0 auto 20px auto;
+}
+
+/* ===== Botón menú ===== */
+.menu-btn {
   position: fixed;
-  top: 15px;
-  left: 15px;
-  z-index: 1100;
-  background: #85cfd2;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  background: #a8e3e5;
   border: none;
-  padding: 10px 15px;
-  font-size: 20px;
-  cursor: pointer;
+  padding: 10px 14px;
   border-radius: 8px;
-  color: white;
-  transition: background 0.3s ease;
+  cursor: pointer;
+  z-index: 1001;
+  transition: background 0.3s;
 }
 
-.menu-toggle:hover {
-  background: #6ebfc2;
+.menu-btn:hover {
+  background: #7fd3d6;
 }
 
-/* Menú lateral oculto */
+/* ===== Menú lateral ===== */
 .menu {
   position: fixed;
   top: 0;
-  left: -250px;
-  width: 230px;
+  left: -260px;
+  width: 240px;
   height: 100%;
-  background: linear-gradient(to bottom, #b9edef, #ffffff);
+  background: rgba(168, 227, 229, 0.85);
+  backdrop-filter: blur(10px);
   padding-top: 60px;
-  transition: left 0.4s ease;
+  transition: left 0.3s ease-in-out;
   z-index: 1000;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
-.menu.active {
+.menu.show {
   left: 0;
 }
 
 .menu ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.menu ul li {
+.menu li {
   margin: 20px 0;
+  text-align: center;
 }
 
-.menu ul li a {
-  color: #000;
+.menu a {
   text-decoration: none;
   font-size: 18px;
-  padding: 10px 20px;
-  display: block;
-  transition: background 0.3s ease, color 0.3s ease;
-  border-radius: 8px;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s;
 }
 
-.menu ul li a:hover {
-  background: rgba(133, 207, 210, 0.3);
-  color: #222;
+.menu a:hover {
+  color: #007777;
 }
 
-/* Secciones */
-main {
-  padding: 60px 20px;
-}
-
+/* ===== Secciones ===== */
 section {
-  margin-bottom: 80px;
+  padding: 60px 20px;
+  min-height: 100vh;
 }
 
-/* Fade-in animation */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+#inicio {
+  background: linear-gradient(to right, #a8e3e5, #ffffff);
+  text-align: center;
 }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+#contacto {
+  background: #f9f9f9;
+  text-align: center;
 }
+
 
 
 

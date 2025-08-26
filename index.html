@@ -1,108 +1,103 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dreamdrop Beauty</title>
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- Fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Angeline+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Botón menú -->
-  <button class="menu-toggle">☰</button>
+  <!-- Botón para abrir menú -->
+  <button class="menu-btn" id="menu-btn">☰</button>
 
-  <!-- Menú lateral oculto -->
-  <nav id="menu" class="menu">
+  <!-- Menú lateral -->
+  <nav class="menu" id="menu">
     <ul>
-      <li><a href="#quienes">Quiénes Somos</a></li>
+      <li><a href="#inicio">Inicio</a></li>
       <li><a href="#trendy">Trendy</a></li>
       <li><a href="#milagros">Milagros</a></li>
       <li><a href="#pocion">La Poción</a></li>
+      <li><a href="#quienes">Quiénes Somos</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
 
-  <!-- Contenido -->
-  <main>
-    <section id="quienes" class="fade-in">
-      <h2 class="titulo-quienes">Quiénes Somos</h2>
-      <p>
-        En Dreamdrop Beauty and Hair Care creemos en la belleza como una experiencia que se comparte. 
-        Somos una tienda apasionada por llevar a nuestros clientes lo mejor del mundo del maquillaje, 
-        el skincare y el cuidado capilar.
-      </p>
-      <p>
-        Nuestro propósito es crecer como mayoristas de marcas colombianas e internacionales reconocidas, 
-        brindando productos de calidad que inspiran confianza, realzan la autenticidad y resaltan la belleza de cada persona.
-      </p>
-      <p>
-        Más que una tienda, somos un aliado para quienes buscan excelencia, innovación y las mejores tendencias en belleza.
-      </p>
-    </section>
+  <!-- Secciones -->
+  <section id="inicio">
+    <img src="logo.png" alt="Dreamdrop Logo" class="logo">
+    <h1>Bienvenidos a Dreamdrop Beauty</h1>
+  </section>
 
-    <section id="trendy" class="fade-in">
-      <h2>Trendy</h2>
-      <p>Aquí va la descripción o productos de la sección Trendy.</p>
-    </section>
+  <section id="trendy">
+    <img src="logo.png" alt="Dreamdrop Logo" class="logo">
+    <h2>Trendy</h2>
+    <p>Aquí van los productos de la categoría Trendy.</p>
+  </section>
 
-    <section id="milagros" class="fade-in">
-      <h2>Milagros</h2>
-      <p>Aquí va la descripción o productos de la sección Milagros.</p>
-    </section>
+  <section id="milagros">
+    <img src="logo.png" alt="Dreamdrop Logo" class="logo">
+    <h2>Milagros</h2>
+    <p>Aquí van los productos de la categoría Milagros.</p>
+  </section>
 
-    <section id="pocion" class="fade-in">
-      <h2>La Poción</h2>
-      <p>Aquí va la descripción o productos de la sección La Poción.</p>
-    </section>
+  <section id="pocion">
+    <img src="logo.png" alt="Dreamdrop Logo" class="logo">
+    <h2>La Poción</h2>
+    <p>Aquí van los productos de la categoría La Poción.</p>
+  </section>
 
-    <section id="contacto" class="fade-in">
-      <h2>Contacto</h2>
-      <p>Aquí puedes poner información de contacto o formulario.</p>
-    </section>
-  </main>
+  <section id="quienes">
+    <img src="logo.png" alt="Dreamdrop Logo" class="logo">
+    <h2 class="titulo-quienes">Quiénes Somos</h2>
+    <p>
+      En Dreamdrop Beauty and Hair Care creemos en la belleza como una experiencia que se comparte. 
+      Somos una tienda apasionada por llevar a nuestros clientes lo mejor del mundo del maquillaje, 
+      el skincare y el cuidado capilar.
+    </p>
+    <p>
+      Nuestro propósito es crecer como mayoristas de marcas colombianas e internacionales reconocidas, 
+      brindando productos de calidad que inspiran confianza, realzan la autenticidad y resaltan la 
+      belleza de cada persona.
+    </p>
+    <p>
+      Más que una tienda, somos un aliado para quienes buscan excelencia, innovación y las mejores 
+      tendencias en belleza.
+    </p>
+  </section>
 
-  <!-- Scripts -->
+  <section id="contacto">
+    <img src="logo.png" alt="Dreamdrop Logo" class="logo">
+    <h2>Contacto</h2>
+    <p>Escríbenos a: contacto@dreamdrop.com</p>
+  </section>
+
   <script>
+    const menuBtn = document.getElementById("menu-btn");
     const menu = document.getElementById("menu");
-    const toggle = document.querySelector(".menu-toggle");
-    let hideTimeout;
+    let timeout;
 
-    // Mostrar / ocultar menú al hacer clic
-    toggle.addEventListener("click", () => {
-      menu.classList.toggle("active");
-      resetHideTimer();
-    });
-
-    // Ocultar menú al hacer clic en una opción
-    document.querySelectorAll(".menu a").forEach(link => {
-      link.addEventListener("click", () => {
-        menu.classList.remove("active");
-      });
-    });
-
-    // Función de auto-ocultar menú
-    function resetHideTimer() {
-      clearTimeout(hideTimeout);
-      if (menu.classList.contains("active")) {
-        hideTimeout = setTimeout(() => {
-          menu.classList.remove("active");
-        }, 3000); // 3 segundos sin interacción
-      }
+    function showMenu() {
+      menu.classList.add("show");
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        menu.classList.remove("show");
+      }, 3000); // 3 segundos sin interacción
     }
 
-    // Animación fade-in
-    const fadeElements = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
+    // Abrir menú con botón
+    menuBtn.addEventListener("click", showMenu);
 
-    fadeElements.forEach(el => observer.observe(el));
+    // Ocultar menú al hacer clic en un enlace
+    menu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("show");
+      });
+    });
+
+    // Si el mouse pasa sobre el menú, no se cierre
+    menu.addEventListener("mouseenter", () => clearTimeout(timeout));
+    menu.addEventListener("mouseleave", showMenu);
   </script>
 </body>
 </html>
