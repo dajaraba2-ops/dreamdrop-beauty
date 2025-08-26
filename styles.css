@@ -1,93 +1,106 @@
-/* Scroll suave */
-html {
-  scroll-behavior: smooth;
-  font-family: 'Roboto', sans-serif;
-}
-
-/* Fondo */
+/* General */
 body {
+  font-family: 'Roboto', sans-serif;
   margin: 0;
-  background: linear-gradient(135deg, #a5dfe4, #ffffff); /* aguamarina más claro */
-  color: #000;
+  padding: 0;
+  background: linear-gradient(to bottom right, #a6e5e7, #ffffff);
+  color: #333;
 }
 
-/* Encabezado */
-header {
-  text-align: center;
-  padding: 20px;
-  position: relative;
+h2 {
+  margin-bottom: 10px;
 }
 
-.logo {
-  max-width: 120px;
-}
-
-.titulo {
-  font-family: 'Alex Brush', cursive;
-  font-size: 2.5rem;
-  margin: 10px 0 0 0;
+/* Título "Quiénes Somos" */
+.titulo-quienes {
+  font-family: 'Angeline Script', cursive;
+  font-size: 2.5em;
+  color: #222;
+  margin-bottom: 20px;
 }
 
 /* Botón menú */
-.menu-btn {
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  font-size: 1.8rem;
-  background: none;
+.menu-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1100;
+  background: #85cfd2;
   border: none;
+  padding: 10px 15px;
+  font-size: 20px;
   cursor: pointer;
+  border-radius: 8px;
+  color: white;
+  transition: background 0.3s ease;
 }
 
-/* Menú oculto */
-.menu-vertical {
-  width: 220px;
-  background: linear-gradient(135deg, #a5dfe4, #ffffff);
+.menu-toggle:hover {
+  background: #6ebfc2;
+}
+
+/* Menú lateral oculto */
+.menu {
   position: fixed;
   top: 0;
-  left: -220px;
+  left: -250px;
+  width: 230px;
   height: 100%;
-  padding-top: 100px;
-  transition: left 0.3s ease;
-  overflow-y: auto;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to bottom, #b9edef, #ffffff);
+  padding-top: 60px;
+  transition: left 0.4s ease;
+  z-index: 1000;
 }
 
-.menu-vertical.show {
+.menu.active {
   left: 0;
 }
 
-.menu-vertical ul {
+.menu ul {
   list-style: none;
-  margin: 0;
   padding: 0;
 }
 
-.menu-vertical ul li {
-  margin: 15px 0;
+.menu ul li {
+  margin: 20px 0;
 }
 
-.menu-vertical ul li a {
-  display: block;
-  padding: 10px;
+.menu ul li a {
   color: #000;
-  font-weight: bold;
   text-decoration: none;
-  font-family: 'Roboto', sans-serif;
-  transition: background 0.3s;
+  font-size: 18px;
+  padding: 10px 20px;
+  display: block;
+  transition: background 0.3s ease, color 0.3s ease;
+  border-radius: 8px;
 }
 
-.menu-vertical ul li a:hover {
-  background: #000;
-  color: #fff;
+.menu ul li a:hover {
+  background: rgba(133, 207, 210, 0.3);
+  color: #222;
 }
 
 /* Secciones */
-section {
-  margin: 40px 20px;
-  padding: 20px;
-  min-height: 100vh;
+main {
+  padding: 60px 20px;
 }
+
+section {
+  margin-bottom: 80px;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 
 

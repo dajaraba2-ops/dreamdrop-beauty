@@ -1,113 +1,108 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dreamdrop Beauty</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Alex+Brush&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Angeline+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Encabezado -->
-  <header>
-    <button id="toggleMenu" class="menu-btn">☰</button>
-    <img src="LOGO.png" alt="Logo Dreamdrop Beauty" class="logo">
-    <h1 class="titulo">Dreamdrop Beauty</h1>
-  </header>
+  <!-- Botón menú -->
+  <button class="menu-toggle">☰</button>
 
   <!-- Menú lateral oculto -->
-  <nav id="menu" class="menu-vertical">
+  <nav id="menu" class="menu">
     <ul>
+      <li><a href="#quienes">Quiénes Somos</a></li>
       <li><a href="#trendy">Trendy</a></li>
       <li><a href="#milagros">Milagros</a></li>
       <li><a href="#pocion">La Poción</a></li>
-      <li><a href="#receta">La Receta</a></li>
-      <li><a href="#dluchi">D'Luchi</a></li>
-      <li><a href="#kaba">Kaba</a></li>
-      <li><a href="#anyeluz">Anyeluz</a></li>
-      <li><a href="#quienes-somos">Quiénes Somos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
 
-  <!-- Secciones -->
-  <section id="trendy">
-    <h2>Trendy</h2>
-    <p>Aquí va la información de Trendy.</p>
-  </section>
+  <!-- Contenido -->
+  <main>
+    <section id="quienes" class="fade-in">
+      <h2 class="titulo-quienes">Quiénes Somos</h2>
+      <p>
+        En Dreamdrop Beauty and Hair Care creemos en la belleza como una experiencia que se comparte. 
+        Somos una tienda apasionada por llevar a nuestros clientes lo mejor del mundo del maquillaje, 
+        el skincare y el cuidado capilar.
+      </p>
+      <p>
+        Nuestro propósito es crecer como mayoristas de marcas colombianas e internacionales reconocidas, 
+        brindando productos de calidad que inspiran confianza, realzan la autenticidad y resaltan la belleza de cada persona.
+      </p>
+      <p>
+        Más que una tienda, somos un aliado para quienes buscan excelencia, innovación y las mejores tendencias en belleza.
+      </p>
+    </section>
 
-  <section id="milagros">
-    <h2>Milagros</h2>
-    <p>Contenido de Milagros.</p>
-  </section>
+    <section id="trendy" class="fade-in">
+      <h2>Trendy</h2>
+      <p>Aquí va la descripción o productos de la sección Trendy.</p>
+    </section>
 
-  <section id="pocion">
-    <h2>La Poción</h2>
-    <p>Contenido de La Poción.</p>
-  </section>
+    <section id="milagros" class="fade-in">
+      <h2>Milagros</h2>
+      <p>Aquí va la descripción o productos de la sección Milagros.</p>
+    </section>
 
-  <section id="receta">
-    <h2>La Receta</h2>
-    <p>Contenido de La Receta.</p>
-  </section>
+    <section id="pocion" class="fade-in">
+      <h2>La Poción</h2>
+      <p>Aquí va la descripción o productos de la sección La Poción.</p>
+    </section>
 
-  <section id="dluchi">
-    <h2>D'Luchi</h2>
-    <p>Contenido de D'Luchi.</p>
-  </section>
+    <section id="contacto" class="fade-in">
+      <h2>Contacto</h2>
+      <p>Aquí puedes poner información de contacto o formulario.</p>
+    </section>
+  </main>
 
-  <section id="kaba">
-    <h2>Kaba</h2>
-    <p>Contenido de Kaba.</p>
-  </section>
-
-  <section id="anyeluz">
-    <h2>Anyeluz</h2>
-    <p>Contenido de Anyeluz.</p>
-  </section>
-
-  <section id="quienes-somos">
-    <h2>Quiénes Somos</h2>
-    <p>Somos Dreamdrop Beauty, una marca dedicada a resaltar la belleza con productos de calidad y estilo único.</p>
-  </section>
-
-  <!-- Script menú -->
+  <!-- Scripts -->
   <script>
-    const toggleMenu = document.getElementById("toggleMenu");
     const menu = document.getElementById("menu");
+    const toggle = document.querySelector(".menu-toggle");
     let hideTimeout;
 
-    function showMenu() {
-      menu.classList.add("show");
-      resetHideTimeout();
-    }
-
-    function hideMenu() {
-      menu.classList.remove("show");
-    }
-
-    function resetHideTimeout() {
-      clearTimeout(hideTimeout);
-      hideTimeout = setTimeout(() => {
-        hideMenu();
-      }, 3000); // 3 segundos sin interacción
-    }
-
-    toggleMenu.addEventListener("click", () => {
-      if (menu.classList.contains("show")) {
-        hideMenu();
-      } else {
-        showMenu();
-      }
+    // Mostrar / ocultar menú al hacer clic
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("active");
+      resetHideTimer();
     });
 
-    document.querySelectorAll(".menu-vertical a").forEach(link => {
+    // Ocultar menú al hacer clic en una opción
+    document.querySelectorAll(".menu a").forEach(link => {
       link.addEventListener("click", () => {
-        hideMenu();
+        menu.classList.remove("active");
       });
     });
 
-    menu.addEventListener("mousemove", resetHideTimeout);
-    menu.addEventListener("touchstart", resetHideTimeout);
+    // Función de auto-ocultar menú
+    function resetHideTimer() {
+      clearTimeout(hideTimeout);
+      if (menu.classList.contains("active")) {
+        hideTimeout = setTimeout(() => {
+          menu.classList.remove("active");
+        }, 3000); // 3 segundos sin interacción
+      }
+    }
+
+    // Animación fade-in
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    fadeElements.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
