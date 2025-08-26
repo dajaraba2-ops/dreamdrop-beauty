@@ -10,17 +10,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Alex+Brush&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Botón para abrir/cerrar menú -->
-  <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
   <!-- Encabezado -->
   <header>
     <img src="LOGO.png" alt="Logo Dreamdrop Beauty" class="logo">
     <h1 class="titulo">Dreamdrop Beauty</h1>
+    <button id="menu-toggle" class="menu-toggle">☰</button>
   </header>
 
   <!-- Menú oculto -->
-  <nav id="sidebar" class="sidebar">
+  <nav id="menu" class="menu-oculto">
     <ul>
       <li><a href="#trendy">Trendy</a></li>
       <li><a href="#milagros">Milagros</a></li>
@@ -29,6 +27,7 @@
       <li><a href="#dluchi">D'Luchi</a></li>
       <li><a href="#kaba">Kaba</a></li>
       <li><a href="#anyeluz">Anyeluz</a></li>
+      <li><a href="#quienes">Quiénes somos</a></li>
     </ul>
   </nav>
 
@@ -68,12 +67,52 @@
     <p>Contenido de Anyeluz.</p>
   </section>
 
-  <!-- Script para abrir/cerrar menú -->
+  <!-- Sección Quiénes somos -->
+  <section id="quienes">
+    <h2>Quiénes somos</h2>
+    <p>
+      En <strong>Dreamdrop Beauty</strong> creemos en la magia de la belleza 
+      auténtica. Nuestra pasión es ofrecer productos innovadores que realcen 
+      tu esencia, con calidad y confianza.  
+    </p>
+  </section>
+
+  <!-- Script -->
   <script>
-    function toggleMenu() {
-      document.getElementById("sidebar").classList.toggle("active");
+    const menu = document.getElementById('menu');
+    const toggle = document.getElementById('menu-toggle');
+    let autoClose;
+
+    function abrirMenu() {
+      menu.classList.add('activo');
+      clearTimeout(autoClose);
+      autoClose = setTimeout(() => {
+        menu.classList.remove('activo');
+      }, 10000); // 10 segundos
     }
+
+    function cerrarMenu() {
+      menu.classList.remove('activo');
+      clearTimeout(autoClose);
+    }
+
+    toggle.addEventListener('click', () => {
+      if (menu.classList.contains('activo')) {
+        cerrarMenu();
+      } else {
+        abrirMenu();
+      }
+    });
+
+    menu.addEventListener('mouseenter', () => clearTimeout(autoClose));
+    menu.addEventListener('mouseleave', () => {
+      autoClose = setTimeout(() => {
+        menu.classList.remove('activo');
+      }, 10000);
+    });
   </script>
 </body>
 </html>
+
+
 

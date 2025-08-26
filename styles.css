@@ -4,100 +4,101 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
-/* 🎨 Fondo general degradado agua marina → blanco */
+/* Fondo degradado */
 body {
   margin: 0;
-  background: linear-gradient(135deg, #85cfd2 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #a7e4e6, #ffffff); /* más claro */
   color: #000;
-  font-family: 'Roboto', sans-serif;
 }
 
 /* Encabezado */
 header {
-  text-align: center;
-  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .logo {
-  max-width: 150px;
+  max-width: 100px;
 }
 
 .titulo {
   font-family: 'Alex Brush', cursive;
-  font-size: 3rem;
-  margin: 10px 0 0 0;
+  font-size: 2.5rem;
+  margin: 0;
+  flex: 1;
+  text-align: center;
 }
 
-/* Botón del menú */
-.menu-btn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  font-size: 30px;
-  cursor: pointer;
-  background: #85cfd2;
-  color: white;
+.menu-toggle {
+  font-size: 2rem;
+  background: none;
   border: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  z-index: 2000;
-  transition: 0.3s;
+  cursor: pointer;
+  color: #333;
 }
 
-.menu-btn:hover {
-  background: #5fb4b7;
-}
-
-/* Sidebar oculto */
-.sidebar {
-  height: 100%;
-  width: 0;
+/* Menú oculto */
+.menu-oculto {
   position: fixed;
   top: 0;
-  left: 0;
-  /* 🎨 Degradado igual que body */
-  background: linear-gradient(180deg, #85cfd2 0%, #ffffff 100%);
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 80px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
-  z-index: 1500;
-}
-
-.sidebar.active {
+  left: -250px;
   width: 250px;
+  height: 100%;
+  background: linear-gradient(180deg, #a7e4e6, #ffffff);
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  padding-top: 80px;
+  transition: left 0.4s ease;
+  z-index: 1000;
 }
 
-/* Items del menú */
-.sidebar ul {
+.menu-oculto.activo {
+  left: 0;
+}
+
+.menu-oculto ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-.sidebar ul li {
-  margin: 15px 0;
+.menu-oculto ul li {
+  margin: 20px 0;
 }
 
-.sidebar ul li a {
+.menu-oculto ul li a {
   display: block;
   padding: 12px 20px;
-  color: #000; /* Negro */
+  color: #000;
   font-weight: bold;
-  font-family: 'Roboto', sans-serif;
   text-decoration: none;
   transition: background 0.3s, color 0.3s;
 }
 
-.sidebar ul li a:hover {
-  background: rgba(133, 207, 210, 0.8);
+.menu-oculto ul li a:hover {
+  background: #85cfd2;
   color: #fff;
   border-radius: 5px;
 }
 
 /* Secciones */
 section {
-  padding: 40px 20px;
+  padding: 60px 20px;
   min-height: 100vh;
 }
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+
 
