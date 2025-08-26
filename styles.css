@@ -1,44 +1,57 @@
-/* Scroll suave y fuente general */
+/* Scroll suave */
 html {
   scroll-behavior: smooth;
   font-family: 'Roboto', sans-serif;
 }
 
-/* Fondo degradado aguamarina difuminado */
+/* Fondo degradado */
 body {
   margin: 0;
-  background: linear-gradient(135deg, #a0dce6, #ffffff); /* azul agua manrina más claro */
+  background: linear-gradient(135deg, #a3dee3, #ffffff); /* aguamarina más clara */
   color: #000;
 }
 
-/* Encabezado */
+/* Encabezado fijo */
 header {
   text-align: center;
   padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #85cfd2;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .logo {
   max-width: 150px;
+  display: block;
+  margin: 0 auto;
 }
 
 .titulo {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Alex Brush', cursive;
   font-size: 3rem;
   margin: 10px 0 0 0;
+  color: #000;
 }
 
-/* Menú vertical */
+/* Menú vertical ocultable */
 .menu-vertical {
   width: 200px;
-  background: linear-gradient(135deg, #85cfd2, #ffffff); /* difuminado aguamarina y blanco */
+  background: #a3dee3; /* aguamarina más clara */
   position: fixed;
-  top: 0;
+  top: 120px; /* debajo del encabezado */
   left: 0;
-  height: 100%;
-  padding-top: 100px;
-  transition: opacity 0.5s;
-  opacity: 1;
-  z-index: 1000;
+  height: calc(100% - 120px);
+  overflow-y: auto;
+  transition: transform 0.3s;
+  transform: translateX(-100%);
+}
+
+.menu-vertical:hover,
+.menu-vertical.active {
+  transform: translateX(0);
 }
 
 .menu-vertical ul {
@@ -54,11 +67,11 @@ header {
 .menu-vertical ul li a {
   display: block;
   padding: 10px;
-  color: black;
+  color: white;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
   text-decoration: none;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s;
 }
 
 .menu-vertical ul li a:hover {
@@ -66,54 +79,48 @@ header {
   color: #fff;
 }
 
-/* Secciones (espacio para menú) */
-.seccion {
-  margin-left: 220px;
-  padding: 40px 20px;
+/* Secciones */
+section {
+  margin-left: 220px; /* deja espacio para menú */
+  padding: 160px 20px 40px 20px;
   min-height: 100vh;
-  text-align: center;
 }
 
-/* Logo dentro de cada sección */
 .logo-seccion {
+  max-width: 100px;
   display: block;
-  margin: 0 auto 20px;
-  max-width: 120px;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin: 0 auto 20px auto;
 }
 
-/* Título Quiénes Somos */
-.titulo-quienes {
-  font-family: 'Dancing Script', cursive;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-/* Estilo productos inventario */
-#inventario-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
+/* Productos */
 .producto {
-  background: rgba(255,255,255,0.8);
+  background: #ffffffaa; /* fondo semitransparente */
+  margin: 15px auto;
   padding: 15px;
   border-radius: 10px;
-  width: 180px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   text-align: center;
+  max-width: 300px;
 }
 
 .producto img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  max-width: 150px;
+  display: block;
+  margin: 0 auto 10px auto;
 }
 
+/* Quiénes somos */
+.titulo-quienes {
+  font-family: 'Alex Brush', cursive;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-
-
-
+.texto-quienes {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: justify;
+}

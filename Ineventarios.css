@@ -1,0 +1,26 @@
+#inventario-trendy {
+  margin-top: 20px;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  color: #000;
+}
+
+/* Estilos simples para cada producto */
+.producto {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.producto img {
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+}
+
+.producto-info {
+  display: flex;
+  flex-direction: column;
+}
