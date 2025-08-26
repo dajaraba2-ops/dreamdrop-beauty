@@ -27,38 +27,45 @@ header {
   margin: 10px 0 0 0;
 }
 
-/* Menú */
-nav {
-  background: #85cfd2;
-  padding: 10px 0;
+/* Menú vertical */
+.menu-vertical {
+  width: 200px;
+  background: #85cfd2; /* aguamarina */
+  position: fixed; /* siempre visible */
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding-top: 100px; /* espacio para logo/título */
 }
 
-.menu {
-  display: flex;
-  justify-content: center;
+.menu-vertical ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.menu li {
-  margin: 0 15px;
+.menu-vertical ul li {
+  margin: 15px 0;
 }
 
-.menu a {
-  text-decoration: none;
+.menu-vertical ul li a {
+  display: block;
+  padding: 10px;
   color: white;
   font-weight: bold;
-  transition: color 0.3s;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  transition: background 0.3s;
 }
 
-.menu a:hover {
-  color: #000;
+.menu-vertical ul li a:hover {
+  background: #000;
+  color: #fff;
 }
 
-/* Secciones */
+/* Secciones (ajustadas para dejar espacio al menú) */
 section {
-  padding: 80px 20px;
+  margin-left: 220px; /* deja espacio a la izquierda */
+  padding: 40px 20px;
   min-height: 100vh;
-  text-align: center;
 }
